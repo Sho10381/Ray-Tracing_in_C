@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Ray Tracer",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "${workspaceFolder}/Ray_tracer.c",
+
+                // Include directory
+                "-I", "C:/Libraries/SDL2-devel-2.30.0-mingw/SDL2-2.30.0/x86_64-w64-mingw32/include",
+
+                // Library directory
+                "-L", "C:/Libraries/SDL2-devel-2.30.0-mingw/SDL2-2.30.0/x86_64-w64-mingw32/lib",
+
+                // SDL2 libraries
+                "-lSDL2",
+                "-lSDL2main",
+
+                // Output file
+                "-o", "${workspaceFolder}/program.exe",
+
+                // IMPORTANT FIX: Tell SDL that we are using main(), not WinMain()
+                "-D", "SDL_MAIN_HANDLED"
+            ],
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
